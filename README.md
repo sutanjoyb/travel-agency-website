@@ -14,7 +14,7 @@ A fully responsive tourism website showcasing rural destinations with a clean UI
 - Offer smooth navigation experience across devices
 - Support light and dark themes
 
-The website is optimized for **desktop, tablet, and mobile devices**.
+The website is optimized for **desktop and mobile devices**.
 
 ---
 
