@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Ruler Tours</title>
+    <title>Reset Successful - Ruler Tours</title>
     <link rel="icon" type="image/png" href="assets/light_logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
@@ -36,19 +35,15 @@
     </header>
 
     <section class="auth-section">
-        <div class="auth-container">
-            <h2>Welcome Back</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <input type="email" id="loginEmail" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" id="loginPassword" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%;">Login</button>
-            </form>
-            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-            <p><a href="forgot-password.html" class="forgot-pass-link">Forgot Password?</a></p>
+        <div class="auth-container" style="text-align: center;">
+            <div style="font-size: 50px; color: #2E7D32; margin-bottom: 20px;">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Password Reset Successful</h2>
+            <p style="margin-bottom: 30px; color: var(--text-muted);">Your password has been reset successfully. You can
+                now login with your new password.</p>
+            <a href="login.html" class="btn-primary" style="display: block; width: 100%; text-decoration: none;">Login
+                Now</a>
         </div>
     </section>
 
@@ -67,18 +62,10 @@
                 <h4>Contact</h4>
                 <p>+91 98765 43210</p>
                 <p>contact@rulertours.com</p>
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
             </div>
         </div>
-        <p class="copyright">&copy; 2026 Ruler Tours. All rights reserved</p>
     </footer>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="script.js"></script>
 </body>
 

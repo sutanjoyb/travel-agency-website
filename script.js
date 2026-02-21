@@ -145,4 +145,79 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Forgot Password Logic
+    const forgotPasswordForm = document.getElementById("forgotPasswordForm");
+    if (forgotPasswordForm) {
+        forgotPasswordForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = document.getElementById("forgotPassEmail").value;
+
+            try {
+                const response = await fetch(`${API_URL}/send-reset-otp`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast(data.message);
+                    localStorage.setItem("resetEmail", email);
+                    setTimeout(() => {
+                        window.location.href = "reset-password.html";
+                    }, 2000);
+                } else {
+                    showToast(data.message, "error");
+                }
+            } catch (error) {
+                showToast("Something went wrong!", "error");
+            }
+        });
+    }
+
+    // Reset Password Logic
+    const resetPasswordForm = document.getElementById("resetPasswordForm");
+    if (resetPasswordForm) {
+        resetPasswordForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const otp = document.getElementById("resetOtp").value;
+            const newPassword = document.getElementById("resetNewPassword").value;
+            const confirmPassword = document.getElementById("resetConfirmPassword").value;
+            const email = localStorage.getItem("resetEmail");
+
+            if (!email) {
+                showToast("Email session expired. Start again.", "error");
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                showToast("Passwords do not match!", "error");
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/reset-password`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, otp, newPassword })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast(data.message);
+                    localStorage.removeItem("resetEmail");
+                    setTimeout(() => {
+                        window.location.href = "reset-success.html";
+                    }, 2000);
+                } else {
+                    showToast(data.message, "error");
+                }
+            } catch (error) {
+                showToast("Something went wrong!", "error");
+            }
+        });
+    }
+
 });
